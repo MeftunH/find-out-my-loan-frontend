@@ -12,7 +12,6 @@ class AuthenticationService {
    return axios.post(url,data);
   }
   logout(){
-    localStorage.removeItem("token");
     axios.defaults.headers.common["Authorization"] = null;
     sessionStorage.clear();
     sessionStorage.setItem('isLoggedOn',false);

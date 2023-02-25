@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../style/Menu.css";
 import AuthenticationService from "../api/AuthenticationService";
 import { Link } from 'react-router-dom';
+
 function Menu() {
+  const [isLoggedOn, setIsLoggedOn] = useState(true);
  const handleLogout=()=>{
     AuthenticationService.logout();
+    setIsLoggedOn(false);
   }
+  useEffect(() => {
+    console.log(isLoggedOn);
+    if (isLoggedOn===false) {
+      window.location.href = "/login";
+    }
+  });
+  if (sessionStorage.getItem('token')) {
   return (
     <nav className="navbar">
       <div className="logo">
@@ -32,6 +42,7 @@ function Menu() {
       </ul>
     </nav>
   );
+}
 }
 
 export default Menu;
