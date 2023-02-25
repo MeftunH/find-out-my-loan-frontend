@@ -1,7 +1,11 @@
 import React from "react";
 import "../../style/Menu.css";
-
+import AuthenticationService from "../api/AuthenticationService";
+import { Link } from 'react-router-dom';
 function Menu() {
+ const handleLogout=()=>{
+    AuthenticationService.logout();
+  }
   return (
     <nav className="navbar">
       <div className="logo">
@@ -23,7 +27,7 @@ function Menu() {
           <a href="#">Blog</a>
         </li>
         <li>
-          <a href="#">Contact Us</a>
+        <Link to="/login" onClick={handleLogout}>Logout</Link>
         </li>
       </ul>
     </nav>

@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import AuthenticationService from "../api/AuthenticationService";
 import Swal from 'sweetalert2'
+import { Navigate } from "react-router-dom";
 
 const schema = Yup.object().shape({
   identityNo: Yup.string()
@@ -29,6 +30,7 @@ class Login extends React.Component {
   }
   handleResponse(response){
     sessionStorage.setItem('token',response.data.data);
+    sessionStorage.setItem('isLoggedOn',true);
   }
   handleError(response){
     Swal.fire({
@@ -39,6 +41,11 @@ class Login extends React.Component {
     })
   }
     render() {
+
+      if (sessionStorage.getItem('token')) {
+       return <Navigate to="/homepage"></Navigate>
+      }
+
         return (
           <Formik
           validationSchema={schema}

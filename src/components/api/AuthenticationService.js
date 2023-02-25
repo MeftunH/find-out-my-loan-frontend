@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 class AuthenticationService {
   login(identityNo, password ){
@@ -9,6 +10,13 @@ class AuthenticationService {
    }
    const url="/auth/login";
    return axios.post(url,data);
+  }
+  logout(){
+    localStorage.removeItem("token");
+    axios.defaults.headers.common["Authorization"] = null;
+    sessionStorage.clear();
+    sessionStorage.setItem('isLoggedOn',false);
+    <Navigate to="/login"></Navigate>
   }
 }
 
