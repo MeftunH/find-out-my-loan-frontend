@@ -17,6 +17,21 @@ class AuthenticationService {
     sessionStorage.setItem('isLoggedOn',false);
     <Navigate to="/login"></Navigate>
   }
+  register(name, surname,identityNo,birthDate,phoneNumber,personType,monthlyIncome,password)
+  {
+    const data={
+        name: name,
+        surname: surname,
+        identityNo: identityNo,
+        birthDate: birthDate,
+        phoneNumber: phoneNumber,
+        personType: personType,
+        monthlyIncome: monthlyIncome,
+        password: password
+    }
+    const url="/auth/register";
+    return axios.post(url,data);
+  }
 }
 
 export default new AuthenticationService();

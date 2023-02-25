@@ -5,6 +5,8 @@ import {Route, Routes} from 'react-router-dom'
 import Login from './components/login/Login';
 import ErrorPage from './components/error/ErrorPage';
 import HomePage from './components/homepage/HomePage';
+import Register from './components/register/Register';
+import LoanApplication from './loan/LoanApplication';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route  path='*' exact element={<ErrorPage/>}></Route>
         <Route  path='/home' exact element={<HomePage/>}></Route>
         <Route  path='/login'exact element={<Login/>}></Route>
+        <Route  path='/register' exact element={<Register/>}></Route>
+        <Route  path='/apply-loan' exact element={<LoanApplication/>}></Route>
      </Routes>
     </div>
   );

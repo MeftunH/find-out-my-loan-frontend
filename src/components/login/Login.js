@@ -18,7 +18,6 @@ const schema = Yup.object().shape({
 function Login() {
   const [isLoggedOn, setIsLoggedOn] = useState(false);
 
-
   useEffect(() => {
     console.log(isLoggedOn);
     if (isLoggedOn) {
@@ -35,8 +34,8 @@ function Login() {
   const handleError = (response) => {
     setIsLoggedOn(false);
     Swal.fire({
-      title: "Error!",
-      text: "Credentials are not matching",
+      title: response.data.message,
+      text: response.data.detail,
       icon: "error",
       confirmButtonText: "OK",
     });
@@ -94,8 +93,11 @@ function Login() {
               <p className="error">
                 {errors.password && touched.password && errors.password}
               </p>
+            
               {/* Click on submit button to submit the form */}
               <button type="submit">Login</button>
+              <p>You haven't an account?</p>
+              <a href="/register">Register Now</a>
             </form>
           </div>
         </div>
