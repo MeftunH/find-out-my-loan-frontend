@@ -1,6 +1,8 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import AuthenticationService from "../api/AuthenticationService";
+import Swal from 'sweetalert2'
 
 const schema = Yup.object().shape({
   identityNo: Yup.string()
@@ -12,6 +14,7 @@ const schema = Yup.object().shape({
     .required("Password is a required field")
     .min(3, "Password must be at least 3 characters"),
 });
+
 class Login extends React.Component {
   constructor(props){
     super(props);
@@ -24,14 +27,26 @@ class Login extends React.Component {
       testState: "newState"
     })
   }
+  handleResponse(response){
+    sessionStorage.setItem('token',response.data.data);
+  }
+  handleError(response){
+    Swal.fire({
+      title: 'Error!',
+      text: 'Credentials are not matching',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    })
+  }
     render() {
         return (
           <Formik
           validationSchema={schema}
           initialValues={{ identityNo: "", password: "" }}
           onSubmit={(values) => {
-            // Alert the input values of the form that we filled
-            alert(JSON.stringify(values));
+            AuthenticationService.login(values.identityNo,values.password)
+            .then(response=>this.handleResponse(response))
+            .catch(error=>this.handleError(error))
           }}
         >
           {({

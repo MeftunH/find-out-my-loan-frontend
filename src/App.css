@@ -1,17 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 0 20px;
+}
 
-.App {
+.logo a {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.nav-links ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  list-style: none;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-links li {
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.nav-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  background-color: #555;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #333;
+    height: 100vh;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: transform 0.2s ease-in-out;
+    transform: translateX(100%);
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .burger {
+    display: block;
   }
 }
 
@@ -29,86 +111,97 @@
 .App-link {
   color: #61dafb;
 }
-
-.body {
-  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-}
-
 .login {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-  font-family: 'Comfortaa', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f6f6f6;
 }
 
 .form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
+  background-color: #fff;
   border-radius: 10px;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+}
+
+.form span {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  display: block;
   text-align: center;
 }
 
 .form input {
-  outline: 0;
-  background: #f2f2f2;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
   width: 100%;
-  border: 0;
-  border-radius: 5px;
-  margin: 0 0 15px;
-  padding: 15px;
   box-sizing: border-box;
-  font-size: 14px;
-  font-family: 'Comfortaa', cursive;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
+.form input[type="number"]::-webkit-inner-spin-button,
+.form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 .form input:focus {
-  background: #dbdbdb;
+  outline: none;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .form button {
-  font-family: 'Comfortaa', cursive;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4b6cb7;
-  width: 100%;
-  border: 0;
-  border-radius: 5px;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+  background-color: #2ecc71;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
   cursor: pointer;
+  font-size: 1.2rem;
+  padding: 15px 20px;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.form button:active {
-  background: #395591;
+.form button:hover {
+  background-color: #27ae60;
 }
 
-.form span {
-  font-size: 40px;
-  color: #4b6cb7;
-  margin-bottom: 25px;
-  display: block;
-}
-
-.form p.error {
-  margin: 0 0 10px 10px;
+.error {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 20px;
   text-align: left;
-  font-size: 10px;
-  color: red;
 }
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 600px) {
+  .form {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .form input {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  
+  .form button {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  
+  .error {
+    font-size: 0.8rem;
+    margin-top: -5px;
+    margin-bottom: 15px;
   }
 }
