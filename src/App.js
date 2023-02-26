@@ -8,6 +8,7 @@ import Register from './components/register/Register';
 import LoanApplication from './loan/LoanApplication';
 import UpdateCustomer from './profile/UpdateCustomer';
 import FindLoans from './loan/FindLoans';
+import DeleteAccountButton from './profile/DeleteAccountButton';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route  path='/apply-loan' exact element={<LoanApplication/>}></Route>
         <Route  path='update-profile' exact element={<UpdateCustomer/>}></Route>
         <Route  path='find-loans' exact element={<FindLoans/>}></Route>
+        <Route  path='delete-account' exact element={<DeleteAccountButton/>}></Route>
      </Routes>
     </div>
   );

@@ -29,9 +29,9 @@ function LoanApplication() {
   }
   const handleError = (response) => {
     Swal.fire({
-        title: response.response.data.title,
-        text: response.response.data.detail,
-        icon: "error",
+        title: response.response.data.data.message,
+        text: response.response.data.data.detail,
+        icon: "info",
         confirmButtonText: "OK",
       });
   }

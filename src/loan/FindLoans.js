@@ -25,11 +25,11 @@ function FindLoans() {
 
   const handleError = (response) => {
     Swal.fire({
-      title: response,
-      text: response,
-      icon: "error",
-      confirmButtonText: "OK",
-    });
+        title: response.response.data.data.message,
+        text: response.response.data.data.detail,
+        icon: "info",
+        confirmButtonText: "OK",
+      });
   };
 
   return (

@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import "tailwindcss/tailwind.css"; // import your CSS file
 import AuthenticationService from "../api/AuthenticationService";
 import Swal from "sweetalert2";
-import logo from '../../assets/find-out-my-loan.png';
+import logo from "../../assets/find-out-my-loan.png";
 
 const initialValues = {
   name: "",
@@ -54,9 +54,9 @@ function Register() {
   };
   const handleError = (response) => {
     Swal.fire({
-      title: response.data.message,
-      text: response.data.detail,
-      icon: "error",
+      title: response.response.data.data.message,
+      text: response.response.data.data.detail,
+      icon: "info",
       confirmButtonText: "OK",
     });
   };
@@ -85,7 +85,7 @@ function Register() {
     >
       {(formik) => (
         <div className="form">
-        <img src={logo}/>
+          <img src={logo} />
           <Form className="bg-white shadow-md rounded-lg px-12 pt-8 pb-8 mb-6 w-full max-w-lg">
             <h2 className="text-2xl text-center mb-6 font-bold text-gray-800">
               Register Form

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import CustomerService from "../components/api/CustomerService";
 import { Link } from "react-router-dom";
+import DeleteAccountButton from "./DeleteAccountButton";
 
 
 
@@ -89,9 +90,9 @@ function UpdateCustomer() {
     const handleError = (error) => {
       setIsUpdated(false);
       Swal.fire({
-        title: error.response.data.title,
-        text: error.response.data.detail,
-        icon: "error",
+        title: error.response.data.data.message,
+        text: error.response.data.data.detail,
+        icon: "info",
         confirmButtonText: "OK",
       });
     };
