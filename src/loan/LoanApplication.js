@@ -28,7 +28,12 @@ function LoanApplication() {
 
   }
   const handleError = (response) => {
-    console.log(response);
+    Swal.fire({
+        title: response.response.data.title,
+        text: response.response.data.detail,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
   }
   const handleSubmit = (values) => {
     LoanApplicationService.loanApply(
