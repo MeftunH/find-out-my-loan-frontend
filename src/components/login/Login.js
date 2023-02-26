@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import AuthenticationService from "../api/AuthenticationService";
 import Swal from "sweetalert2";
-
+import logo from '../../assets/find-out-my-loan.png';
 const schema = Yup.object().shape({
   identityNo: Yup.string()
     .required("Identity No is a required field")
@@ -21,7 +21,7 @@ function Login() {
   useEffect(() => {
     console.log(isLoggedOn);
     if (isLoggedOn) {
-      window.location.href = "/homepage";
+      window.location.href = "/apply-loan";
     }
   });
 
@@ -58,8 +58,10 @@ function Login() {
         handleBlur,
         handleSubmit,
       }) => (
-        <div className="login">
+      
           <div className="form">
+        <img src={logo}/>
+
             {/* Passing handleSubmit parameter tohtml form onSubmit property */}
             <form noValidate onSubmit={handleSubmit}>
               <span>Login</span>
@@ -100,7 +102,7 @@ function Login() {
               <a href="/register">Register Now</a>
             </form>
           </div>
-        </div>
+       
       )}
     </Formik>
   );
