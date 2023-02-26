@@ -4,7 +4,10 @@ import Menu from './components/menu/Menu';
 import {Route, Routes} from 'react-router-dom'
 import Login from './components/login/Login';
 import ErrorPage from './components/error/ErrorPage';
-import HomePage from './components/homepage/HomePage';
+import Register from './components/register/Register';
+import LoanApplication from './loan/LoanApplication';
+import UpdateCustomer from './profile/UpdateCustomer';
+import FindLoans from './loan/FindLoans';
 
 function App() {
   return (
@@ -12,8 +15,11 @@ function App() {
      <Menu></Menu>
      <Routes>
         <Route  path='*' exact element={<ErrorPage/>}></Route>
-        <Route  path='/home' exact element={<HomePage/>}></Route>
         <Route  path='/login'exact element={<Login/>}></Route>
+        <Route  path='/register' exact element={<Register/>}></Route>
+        <Route  path='/apply-loan' exact element={<LoanApplication/>}></Route>
+        <Route  path='update-profile' exact element={<UpdateCustomer/>}></Route>
+        <Route  path='find-loans' exact element={<FindLoans/>}></Route>
      </Routes>
     </div>
   );
