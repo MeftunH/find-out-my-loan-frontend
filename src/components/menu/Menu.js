@@ -27,8 +27,8 @@ function Menu() {
       <li>
         <Link to="/apply-loan">Loan Apply</Link>
         </li>
-      <li>
-        <Link to="/find-loans">Find Loans</Link>
+        <li>
+        <Link to="/delete-account">Delete Account</Link>
         </li>
       <li>
         <Link to="/update-profile">Update Profile</Link>
