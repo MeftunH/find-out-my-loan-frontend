@@ -34,9 +34,9 @@ function Login() {
   const handleError = (response) => {
     setIsLoggedOn(false);
     Swal.fire({
-      title: response.data.message,
-      text: response.data.detail,
-      icon: "error",
+      title: response.response.data.data.message,
+      text: response.response.data.data.detail,
+      icon: "info",
       confirmButtonText: "OK",
     });
   };

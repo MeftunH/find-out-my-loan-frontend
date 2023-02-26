@@ -107,7 +107,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.delete-account-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .App-link {
   color: #61dafb;
 }
