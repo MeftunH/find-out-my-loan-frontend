@@ -19,9 +19,9 @@ function App() {
         <Route  path='/login'exact element={<Login/>}></Route>
         <Route  path='/register' exact element={<Register/>}></Route>
         <Route  path='/apply-loan' exact element={<LoanApplication/>}></Route>
-        <Route  path='update-profile' exact element={<UpdateCustomer/>}></Route>
-        <Route  path='find-loans' exact element={<FindLoans/>}></Route>
-        <Route  path='delete-account' exact element={<DeleteAccountButton/>}></Route>
+        <Route  path='/update-profile' exact element={<UpdateCustomer/>}></Route>
+        <Route  path='/find-loans' exact element={<FindLoans/>}></Route>
+        <Route  path='/delete-account' exact element={<DeleteAccountButton/>}></Route>
      </Routes>
     </div>
   );

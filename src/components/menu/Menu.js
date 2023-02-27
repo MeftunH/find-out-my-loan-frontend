@@ -31,6 +31,9 @@ function Menu() {
         <Link to="/delete-account">Delete Account</Link>
         </li>
       <li>
+      <Link to="/find-loans">Find Loans</Link>
+        </li>
+      <li>
         <Link to="/update-profile">Update Profile</Link>
         </li>
         <li>
